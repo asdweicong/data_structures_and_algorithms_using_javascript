@@ -2,7 +2,7 @@
  * @Author: mikey.zhaopeng 
  * @Date: 2020-03-18 22:10:52 
  * @Last Modified by: mikey.zhaopeng
- * @Last Modified time: 2020-03-18 22:21:02
+ * @Last Modified time: 2020-03-19 21:18:23
  */
 
  function Dictionary(){
@@ -23,7 +23,9 @@
      delete this.datastore[key];
  };
  function showAll(){
-     var datakeys = Array.prototype.slice.call(object.keys(this.datastore));
+     var datakeys = Array.prototype.slice.call(Object.keys(this.datastore));
+     console.log(this.datastore);
+     console.log(datakeys);
      for(var key in datakeys){
         console.log(this.datastore[key] + '->' + this.datastore[datakeys[key]]);
      }
