@@ -3,7 +3,7 @@
  * @Email: &#39;1418066959@qq.com&#39;
  * @Date: 2020-04-09 21:44:30
  * @Last Modified by: 'weicon'
- * @Last Modified time: 2020-04-09 22:33:28
+ * @Last Modified time: 2020-04-10 21:57:06
  * @Description: Description
  */
 function Node(data,left,right){
@@ -72,6 +72,10 @@ function preOrder(node){
         preOrder(node.right);
     }
 }
+/**
+ * 后序遍历
+ * @param {*} node 
+ */
 function postOrder(node){
     if(!(node == null)){
         postOrder(node.left);

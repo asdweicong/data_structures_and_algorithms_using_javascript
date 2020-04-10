@@ -129,6 +129,15 @@ function removeNode(node,data){
             return node.left;
         }
         var temNode = getSmallset(node,right);
+        node.data = temNode.data;
+        node.right = removeNode(node,right,temNode.data);
+        return node;
+    }else if(data < node.data){
+        node.left = removeNode(node.left,data);
+        return node;
+    }else{
+        node.right = removeNode(node.right,data);
+        return node;
     }
 }
 var nums = new BST();
