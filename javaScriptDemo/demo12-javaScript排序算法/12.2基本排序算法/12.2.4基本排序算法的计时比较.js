@@ -3,7 +3,7 @@
  * @Email: &#39;1418066959@qq.com&#39;
  * @Date: 2020-04-12 21:48:55
  * @Last Modified by: 'weicon'
- * @Last Modified time: 2020-04-14 21:26:46
+ * @Last Modified time: 2020-04-14 22:03:59
  * @Description: Description
  */
 function CArray(numElements){
@@ -16,6 +16,8 @@ function CArray(numElements){
     that.clear = clear;
     that.setData = setData;
     that.swap = swap;
+    that.bubbleSort = bubbleSort;
+    that.selectionSort = selectionSort;
     that.insertionSort = insertionSort;
     for(var i=0;i<numElements;++i){
         this.dataStore[i] = i;
@@ -53,6 +55,29 @@ function swap(arr,index1,index2){
     arr[index1] = arr[index2];
     arr[index2] = temp;
 }
+function bubbleSort(){
+    var numElements = this.dataStore.length;
+    var temp;
+    for(var outer = numElements;outer>=2;--outer){
+        for(var inner = 0;inner<=outer-1;++inner){
+            if(this.dataStore[inner] > this.dataStore[inner-1]){
+                swap(this.dataStore,inner,inner+1);
+            }
+        }
+    }
+}
+function selectionSort(){
+    var temp,min;
+    for(var outer = 0;outer<=this.dataStore.length-2;++outer){
+        min = outer;
+        for(var inner = outer +1;inner<=this.dataStore.length-1;++inner){
+            if(this.dataStore[inner] < this.dataStore[min]){
+                min = inner;
+            }
+            swap(this.dataStore,outer,min);
+        }
+    }
+}
 function insertionSort(){
     var temp,inner;
     for(var outer = 1;outer<=this.dataStore.length-1;++outer){
@@ -65,10 +90,22 @@ function insertionSort(){
         this.dataStore[inner] = temp;
     }
 }
-var numElements = 10;
+var numElements = 10000;
 var myNums = new CArray(numElements);
 myNums.setData();
 console.log(myNums);
-console.log(myNums.toString());
+// var start = new Date().getTime();
+// myNums.bubbleSort();
+// var stop = new Date().getTime();
+// var elapsed = stop - start;
+// console.log('冒泡算法使用时间：'+elapsed+'毫秒')
+// var start = new Date().getTime();
+// myNums.selectionSort();
+// var stop = new Date().getTime();
+// var elapsed = stop - start;
+// console.log('选择算法使用时间：'+elapsed+'毫秒')
+var start = new Date().getTime();
 myNums.insertionSort();
-console.log(myNums.toString());
+var stop = new Date().getTime();
+var elapsed = stop - start;
+console.log('插入算法使用时间：'+elapsed+'毫秒')

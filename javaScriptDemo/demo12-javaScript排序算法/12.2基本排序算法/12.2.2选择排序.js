@@ -3,7 +3,7 @@
  * @Email: &#39;1418066959@qq.com&#39;
  * @Date: 2020-04-12 21:48:55
  * @Last Modified by: 'weicon'
- * @Last Modified time: 2020-04-12 22:16:42
+ * @Last Modified time: 2020-04-14 21:26:22
  * @Description: Description
  */
 function CArray(numElements){
@@ -16,7 +16,7 @@ function CArray(numElements){
     that.clear = clear;
     that.setData = setData;
     that.swap = swap;
-    that.bubbleSort = bubbleSort;
+    that.selectionSort = selectionSort;
     for(var i=0;i<numElements;++i){
         this.dataStore[i] = i;
     }
@@ -53,7 +53,7 @@ function swap(arr,index1,index2){
     arr[index1] = arr[index2];
     arr[index2] = temp;
 }
-function bubbleSort(){
+function selectionSort(){
     var temp,min;
     for(var outer = 0;outer<=this.dataStore.length-2;++outer){
         min = outer;
@@ -70,5 +70,5 @@ var myNums = new CArray(numElements);
 myNums.setData();
 console.log(myNums);
 console.log(myNums.toString());
-myNums.bubbleSort();
+myNums.selectionSort();
 console.log(myNums.toString());
